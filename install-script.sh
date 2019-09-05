@@ -82,6 +82,10 @@ elif [ $POSTRESQL_EXIST -eq 0 ]; then
         echo >&2 '  (Also of interest might be DB_USERNAME and DB_NAME.)'
         exit 1
     fi
+    
+####### CUSTOM SETINGS ########
+elif [ -z "$DB_TYPE" ] && [ -z "$DB_HOST" ] && [ -z "$DB_USERNAME" ] && [ -z "$DB_PASSWORD" ] && [ -z "$DB_NAME" ]; then
+    echo 'Custom connection to the $DB_TYPE'
 
 ####### H2 ########
 # In the case no db server was linked to the container, Squash will use the default embedded H2 db. Here are the local variables using for connection
